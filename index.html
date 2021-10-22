@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+        <link href="style.css" rel="stylesheet" />
+        <title>Evaluación Nº1</title>
+    </head>
+    <body class="bg-primary bg-gradient" style="--bs-bg-opacity: 0.1;">
+        <nav class="fixed-top container">
+            <div class="row pt-2">
+                <div class="col">
+                    <h3 class="fs-6 d-flex justify-content-between align-items-center"><span>Evaluación</span> <span>Nº1</span></h3>
+                </div>
+            </div>
+        </nav>
+        <header class="container-fluid" id="fondo-con-imagen">
+            <div class="row h-100">
+                <div class="div text-center my-auto">
+                    <h1>Juegos Pokémon</h1>
+                    <h4>Fenómeno Japonés desde 1996</h4>
+                </div>
+            </div>
+        </header>
+        <section class="container py-3">
+            <div class="row py-4">
+                <div class="col-sm-10 col-md-8 mx-auto">
+                  <h4>El inicio de una aventura</h5>
+                    <p>Pokémon (ポケモン) es una franquicia de medios que originalmente comenzó como un videojuego RPG, pero debido a su popularidad ha logrado expandirse a otros medios de entretenimiento como series de televisión, películas, juegos de cartas, ropa, entre otros, convirtiéndose en una marca que es reconocida en el mercado mundial.<br> La saga de videojuegos es desarrollada por la compañía programadora de software japonesa Game Freak, con personajes creados por Satoshi Tajiri para la empresa de juguetes Creatures Inc., y a su vez distribuida por Nintendo. La misión en estos juegos es capturar y entrenar a los pokémon, que hasta la fecha alcanzan el número de 890.</p>
+
+                    <canvas id="misBarritas" width="100" height="70" class="my-5"></canvas>
+
+                    <p>La serie se divide en generaciones Pokémon, las cuales son los grupos de videojuegos lanzados en un cierto período y que comparten una serie de características similares, concretamente los personajes y criaturas y la región donde se sucede la historia. Estas generaciones suelen corresponderse con las generaciones de las consolas. La aparición sucesiva de generaciones suele tener como consecuencia la publicación de nuevas entregas de diversos productos derivados de los videojuegos, como la serie de anime Pokémon.</p>
+
+                    <h4>Creador del mundo Pokémon:</h5>
+                    <p>Satoshi Tajiri nació el 28 de agosto de 1965 en Tokio. Sus padres eran una ama de casa y un vendedor de vehículos de la compañía Nissan.1​ Tajiri creció en Machida, Tokio, lugar que, en aquel entonces, poseía una atmósfera rural. En su infancia, a Tajiri le gustaba coleccionar insectos, un pasatiempo que probó ser la inspiración de sus posteriores trabajos.2​ De hecho, los demás niños lo llamaban "Dr. Insecto" y quiso ser entomólogo. Mientras las áreas urbanas de Japón crecían, muchos de los lugares para cazar insectos desaparecieron. Tajiri quiso que sus juegos le permitieran a los niños tener la misma sensación de atrapar y coleccionar criaturas que él tuvo en su infancia. Los personajes de Ash Ketchum y Gary Oak (Satoshi y Shigeru en Japón) son versiones de Tajiri y Shigeru Miyamoto cuando eran niños.</p>
+
+                </div>
+                <div class="card" style="width: 18rem; height: 50rem;">
+                  <object type="image/svg+xml" data="pikachu3.svg" class="w-100">
+                    </object>
+                  <img src="https://nintendowire.com/wp-content/uploads/2020/07/Pokemon-Card-Illustration-GrandPrix-sub5.jpg" class="card-img-top" alt="...">
+                  <div class="card-body" #id='card-body'>
+                    <h5>Juego de Cartas Coleccionables</h5>
+                    <p class="card-text">¡Conviértete en un Entrenador Pokémon y combate contra otros Entrenadores usando increíbles Pokémon en JCC Pokémon! Los Entrenadores usan ataques para dejar Fuera de Combate a los Pokémon del otro y ganar cartas de Premio. El primer jugador en coger las 6 cartas de Premio gana la partida.</p>
+                    <a href="https://www.pokemon.com/es/jcc-pokemon/" class="btn btn-primary">JCC Pokémon</a>
+                  </div>
+                </div>
+            </div>
+        </section>
+        <footer class="container border-top">
+            <div class="row pt-3">
+                <div class="col">
+                    <p class="d-flex justify-content-between align-items-center small"><a href="https://github.com/mochuse">Francisca Chong</a> <a href="https://github.com/profesorfaco/interaccion/tree/main/sesion_08">AUD5V0010</a></p>
+                </div>
+            </div>
+        </footer>
+        <!--con el siguiente script escondo el nav fijo según avance del scroll -->
+        <script>
+            var altura = document.getElementById("fondo-con-imagen").offsetHeight;
+            window.addEventListener("scroll", (event) => {
+                let scroll = this.scrollY;
+                console.log(scroll);
+                var element = document.getElementsByTagName("nav")[0];
+                if (scroll > altura) {
+                    element.classList.add("d-none");
+                } else {
+                    element.classList.remove("d-none");
+                }
+            });
+        </script>
+        <!--con el siguiente script voy a buscar la biblioteca Chart.js-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"
+            integrity="sha512-Wt1bJGtlnMtGP0dqNFH1xlkLBNpEodaiQ8ZN5JLA5wpc1sUlk/O5uuOMNgvzddzkpvZ9GLyYNa8w2s7rqiTk5Q=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+        <!--con el siguiente script voy a buscar datos a un JSON y con ellos construyo un gráfico de barras-->
+        <script>
+            fetch("https://myjson.dit.upm.es/api/bins/14ib")
+                .then((response) => response.json())
+                .then((poblacion) => {
+                    console.log(poblacion);
+                    var pkmName = [],
+                        pkmUnits = [];
+
+                    poblacion.forEach((d) => {
+                        pkmName.push(d.name);
+                        pkmUnits.push(d.units);
+                    });
+
+                    new Chart(document.getElementById("misBarritas").getContext("2d"), {
+                        type: "line",
+                        data: {
+                            labels: pkmName,
+                            datasets: [
+                                {
+                                    data: pkmUnits,
+                                    backgroundColor: "#0b5394",
+                                    label: "Units sold in millions",
+                                },
+                            ],
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    ticks: {
+                                        callback: function (numero) {
+                                            return numero.toLocaleString("es-CL");
+                                        },
+                                    },
+                                },
+                            },
+                            plugins: {
+                                title: {
+                                    display: true,
+                                    text: "Best-selling Pokémon video games worldwide as of December 2020",
+                                },
+                            },
+                        },
+                    });
+                })
+                .catch((error) => console.log("¡PLW!", error));
+        </script>
+    </body>
+</html>
